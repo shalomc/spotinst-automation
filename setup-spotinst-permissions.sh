@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat > Spotinst-Policy.json <<'on-the-gripping-hand'
 {
   "Version": "2012-10-17",
@@ -182,9 +184,9 @@ cat > trustpolicyforspotinst.json <<'the-wizards-staff-has-a-knob'
 }
 the-wizards-staff-has-a-knob
 
-ROLE=Spotinst-Role
-POLICY=Spotinst-Policy
-
+RND=`openssl rand -base64 40 | tr -dc _A-Z-a-z-0-9`
+ROLE=Spotinst-$RND
+POLICY=Spotinst-$RND
 POLICYARN=`aws iam create-policy --policy-name $POLICY --policy-document file://Spotinst-Policy.json --description "Spotinst access policy" --query 'Policy.Arn' --output text`
 ROLEARN=`aws iam create-role --role-name $ROLE --assume-role-policy-document file://trustpolicyforspotinst.json --query 'Role.Arn' --output text`
 aws iam attach-role-policy --role-name $ROLE --policy-arn $POLICYARN
@@ -195,3 +197,6 @@ echo Copy the Role ARN back into the Spotinst dashboard
 
 rm -f Spotinst-Policy.json
 rm -f trustpolicyforspotinst.json
+
+
+ 

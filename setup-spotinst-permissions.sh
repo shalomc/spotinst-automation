@@ -182,8 +182,8 @@ cat > trustpolicyforspotinst.json <<'the-wizards-staff-has-a-knob'
 }
 the-wizards-staff-has-a-knob
 
-ROLE=Spotinst-Role-v9
-POLICY=Spotinst-Policy-v9
+ROLE=Spotinst-Role
+POLICY=Spotinst-Policy
 
 POLICYARN=`aws iam create-policy --policy-name $POLICY --policy-document file://Spotinst-Policy.json --description "Spotinst access policy" --query 'Policy.Arn' --output text`
 ROLEARN=`aws iam create-role --role-name $ROLE --assume-role-policy-document file://trustpolicyforspotinst.json --query 'Role.Arn' --output text`

@@ -9,6 +9,9 @@ http://www.spotinst.com/
 
 ## Contents
 * setup-spotinst-permissions.sh - A script to create the necessary IAM policy and role to allow Spotinst do it's magic
+* spotinst-cloudformation.json - A CloudFormation template to create an IAM stack for Spotinst.
+* spotinst-cloudformation.sh - A script that uses CloudFormation to create the necessary IAM policy and role to allow Spotinst do it's magic 
+
 
 ## License
 Copyright 2016 Shalom Carmel

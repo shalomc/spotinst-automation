@@ -1,6 +1,6 @@
 {
    "AWSTemplateFormatVersion": "2010-09-09",
-   "Description" : "Template used to create IAM policies for Spotinst access autorization. To execute via the CLI save this template file on your hard drive and run this command:  aws cloudformation create-stack --stack-name Spotinst --template-body file://spotinst-cloudformation.json --parameters ParameterKey=ExternalID,ParameterValue=<value-from-Spotinst-console>",
+   "Description" : "Template used to create IAM policies for Spotinst access authorization. To execute via the CLI save this template file on your hard drive and run this command:  aws cloudformation create-stack --stack-name Spotinst --template-body file://spotinst-cloudformation.json --parameters ParameterKey=ExternalID,ParameterValue=<value-from-Spotinst-console>",
   "Parameters" : {
       
     "ExternalID": {
@@ -16,7 +16,7 @@
   { "Policy": {
     "Type": "AWS::IAM::ManagedPolicy",
     "Properties": {
-      "Description": "Policy for creating a test database",
+      "Description": "Policy for giving Spotinst the correct permissions",
       "Path": "/",
       "PolicyDocument": {
         "Version": "2012-10-17",

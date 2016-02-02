@@ -8,27 +8,7 @@ cat > Spotinst-Policy.json <<'on-the-gripping-hand'
       "Sid": "Stmt1437894762000",
       "Effect": "Allow",
       "Action": [
-        "ec2:AllocateAddress",
-        "ec2:AssignPrivateIpAddresses",
-        "ec2:AssociateAddress",
-        "ec2:AttachVolume",
-        "ec2:AuthorizeSecurityGroupEgress",
-        "ec2:AuthorizeSecurityGroupIngress",
-        "ec2:CancelReservedInstancesListing",
-        "ec2:CancelSpotInstanceRequests",
-        "ec2:ConfirmProductInstance",
-        "ec2:CopyImage",
-        "ec2:CopySnapshot",
-        "ec2:CreateImage",
-        "ec2:CreateNetworkInterface",
-        "ec2:CreatePlacementGroup",
-        "ec2:CreateSecurityGroup",
-        "ec2:CreateSnapshot",
-        "ec2:CreateSpotDatafeedSubscription",
-        "ec2:CreateTags",
-        "ec2:CreateVolume",
-        "ec2:DeleteTags",
-        "ec2:DeleteVolume",
+        "ec2:RequestSpotInstances",
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAddresses",
         "ec2:DescribeAvailabilityZones",
@@ -63,17 +43,33 @@ cat > Spotinst-Policy.json <<'on-the-gripping-hand'
         "ec2:DescribeVpcClassicLink",
         "ec2:DescribeVpcEndpointServices",
         "ec2:DescribeVpcs",
+        "ec2:AllocateAddress",
+        "ec2:AssignPrivateIpAddresses",
+        "ec2:AssociateAddress",
+        "ec2:AttachVolume",
+        "ec2:CancelSpotInstanceRequests",
+        "ec2:ConfirmProductInstance",
+        "ec2:CopyImage",
+        "ec2:CopySnapshot",
+        "ec2:CreateImage",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreatePlacementGroup",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateSnapshot",
+        "ec2:CreateSpotDatafeedSubscription",
+        "ec2:CreateTags",
+        "ec2:CreateVolume",
+        "ec2:DeleteTags",
+        "ec2:DeleteVolume",
         "ec2:DetachNetworkInterface",
         "ec2:DetachVolume",
         "ec2:DisassociateAddress",
-        "ec2:EnableVolumeIO",
         "ec2:ModifyImageAttribute",
         "ec2:ModifyInstanceAttribute",
         "ec2:ModifyNetworkInterfaceAttribute",
         "ec2:MonitorInstances",
         "ec2:RebootInstances",
         "ec2:RegisterImage",
-        "ec2:RequestSpotInstances",
         "ec2:RunInstances",
         "ec2:StartInstances",
         "ec2:StopInstances",
@@ -160,6 +156,30 @@ cat > Spotinst-Policy.json <<'on-the-gripping-hand'
       "Effect": "Allow",
       "Action": [
         "elasticbeanstalk:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "Stmt1453730798000",
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:DescribeLaunchConfigurations",
+        "autoscaling:DescribePolicies"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "Stmt1453731008000",
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:GetObject",
+        "cloudformation:ListStackResources"
       ],
       "Resource": [
         "*"
